@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+      html, body {
+        height: 100%;
+      }
+
+      #wordrefcontainer {
+        height: 1000px;
+      }
+
+      iframe {
+        position: absolute;
+      }
+
+      body {
+        padding-top: 60px;
+      }
+      @media (max-width: 979px) {
+        body {
+          padding-top: 0px;
+        }
+      }
+
+      .btn-file {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TranslateBox</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>TranslateBox</h1>
+        <p>This is a TranslateBox!</p>
+        <p>
+          <span class="btn btn-lg btn-primary btn-file">
+              Load <input type="file" id="file">
+          </span>
+        </p>
+      </div>
+      <hr/>
+      <div id="list"></div>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="text"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="wordrefcontainer" class="embed-responsive embed-responsive-16by9">
+            <iframe id="wordref" class="embed-responsive-item" src=""></iframe>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-md-12">
+          <button id="save" class="btn btn-lg btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function loadWord(word) {
+        console.log("loadWord", word);
+        document.getElementById("wordref").src = "http://www.wordreference.com/iten/" + word;
+      }
+
+      function convertToLink(word) {
+        return '<span onclick="loadWord(\'' + word + '\');">' + word + '</span>';
+      }
+
+      function annotateWithLinks(s) {
+          var regex = /[^ ]+/g
+          return s.replace(regex, convertToLink);
+      }
+
+      function generateHTML(translationUnits) {
+        var html = "";
+        for (p of translationUnits) {
+          var linkedParagraph = annotateWithLinks(p);
+          html += "<p>";
+          html += linkedParagraph;
+          html += "</p>";
+          html += "<textarea class=\"form-control\" rows=\"3\"></textarea>";
+        }
+        return html;
+      }
+
+      function splitText(s) {
+        var regex = /\n\n/g
+        var paragraphs = s.split(regex);
+        return paragraphs;
+      }
+
+      // Load 
+      function loadText(s) {
+        var tus = splitText(s);
+        var html = generateHTML(tus);
+        document.getElementById('text').innerHTML = html;
+      }
+
+      function handleFileSelect(evt) {
+        var files = evt.target.files;
+        var output = [];
+        for (var i = 0, f; f = files[i]; i++) {
+          output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                      f.size, ' bytes, last modified: ',
+                      f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                      '</li>');
+        }
+        document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+          return function(e) {
+            loadText(e.target.result);
+          };
+        })(f);
+        reader.readAsText(files[0]);
+      }
+      document.getElementById('file').addEventListener('change', handleFileSelect, false);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
