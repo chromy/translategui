@@ -118,7 +118,7 @@
           html += "<p>";
           html += linkedParagraph;
           html += "</p>";
-          html += "<textarea class=\"form-control\" rows=\"3\"></textarea>";
+          html += "<textarea class=\"box form-control\" rows=\"3\"></textarea>";
         }
         return html;
       }
@@ -134,6 +134,25 @@
         var tus = splitText(s);
         var html = generateHTML(tus);
         document.getElementById('text').innerHTML = html;
+      }
+
+      function download(text, name, type) {
+        var a = document.createElement("a");
+        var file = new Blob([text], {type: type});
+        a.href = URL.createObjectURL(file);
+        a.download = name;
+        a.click();
+      }
+
+      function saveTranslation(e) {
+        var boxes = document.getElementsByClassName("box");
+        var text = "";
+        [].forEach.call(boxes, function (box) {
+          text += box.value;
+          text += "\n\n";
+        });
+        console.log(text);
+        download(text, "translation.txt", "text/html");
       }
 
       function handleFileSelect(evt) {
@@ -156,6 +175,7 @@
         reader.readAsText(files[0]);
       }
       document.getElementById('file').addEventListener('change', handleFileSelect, false);
+      document.getElementById('save').addEventListener('click', saveTranslation, false);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
