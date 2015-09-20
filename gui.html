@@ -48,6 +48,17 @@
         cursor: inherit;
         display: block;
       }
+
+      #reference {
+      }
+
+      #reference.affix {
+        top: 51px;
+        width: 50%;
+      }
+
+
+
     </style>
   </head>
   <body>
@@ -88,8 +99,10 @@
           <div id="text"></div>
         </div>
         <div class="col-md-6">
-          <div id="wordrefcontainer" class="embed-responsive embed-responsive-16by9">
-            <iframe id="wordref" class="embed-responsive-item" src=""></iframe>
+          <div id="reference" data-spy="affix" data-offset-top="200" data-offset-bottom="200">
+            <div id="wordrefcontainer" class="embed-responsive embed-responsive-16by9">
+              <iframe id="wordref" class="embed-responsive-item" src=""></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -100,6 +113,8 @@
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
       function loadWord(word) {
         console.log("loadWord", word);
@@ -133,7 +148,7 @@
         return paragraphs;
       }
 
-      // Load 
+      // Load
       function loadText(s) {
         var tus = splitText(s);
         var html = generateHTML(tus);
@@ -180,8 +195,16 @@
       }
       document.getElementById('file').addEventListener('change', handleFileSelect, false);
       document.getElementById('save').addEventListener('click', saveTranslation, false);
+
+      $('#reference').affix({
+        offset: {
+          top: 400,
+          bottom: function () {
+            return (this.bottom = $('.footer').outerHeight(true))
+          }
+        }
+      })
+
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
