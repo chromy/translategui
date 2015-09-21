@@ -143,7 +143,7 @@
       }
 
       function splitText(s) {
-        var regex = /\n\n/g
+        var regex = /\n/g
         var paragraphs = s.split(regex);
         return paragraphs;
       }
@@ -168,7 +168,7 @@
         var text = "";
         [].forEach.call(boxes, function (box) {
           text += box.value;
-          text += "\n\n";
+          text += "\n";
         });
         console.log(text);
         download(text, "translation.txt", "text/html");
