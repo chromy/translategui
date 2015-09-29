@@ -126,7 +126,7 @@
       }
 
       function annotateWithLinks(s) {
-          var regex = /[^ ]+/g
+        var regex = /[^ .,-\/#!$%\^&\*;:{}=\-_`~()]+/g
           return s.replace(regex, convertToLink);
       }
 
