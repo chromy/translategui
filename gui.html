@@ -104,7 +104,7 @@
           </span>
           <span class="btn btn-lg btn-secondary">
           <label for="source_dict">Dictionary:</label>
-          <select id="source_dict" name="source_dict" onchange="setSourceDictFunction(event); clearJsonDict();">
+          <select id="source_dict" name="source_dict" onchange="setSourceDictFunction(event); clearElements();">
             <optgroup label="Italian">
               <option value="wordref_iten">wordreference Italian - English</option>
               <option value="wordref_definition">wordreference Italian Definition</option>
@@ -143,8 +143,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-      function clearJsonDict() {
+      function clearElements() {
         document.getElementById("jsondict").innerHTML = "";
+        document.getElementById("wordref").src = "";
       }
 
       function loadWordrefItEn(word) {
