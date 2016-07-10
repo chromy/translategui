@@ -90,6 +90,18 @@
           <span class="btn btn-lg btn-primary btn-file">
               Load <input type="file" id="file">
           </span>
+          <span class="btn btn-lg btn-secondary">
+          <label for="source_dict">Dictionary:</label>
+          <select id="source_dict" name="source_dict" onchange="setSourceDict(event);">
+            <optgroup label="Italian">
+              <option value="wordref_iten">wordreference Italian - English</option>
+              <option value="wordref_definition">wordreference Italian Definition</option>
+            </optgroup>
+            <optgroup label="Polish">
+              <option value="lektorek">lektorek</option>
+            </optgroup>
+          </select>
+          </span>
         </p>
       </div>
       <hr/>
@@ -116,9 +128,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
+
+      var sourceDict = '';
+
+      function setSourceDict(event) {
+        sourceDict = event.target.value;
+        console.log(sourceDict);
+      }
+
       function loadWord(word) {
         console.log("loadWord", word);
-        document.getElementById("wordref").src = "http://www.wordreference.com/iten/" + word;
+        document.getElementById("wordref").src = "http://en.bab.la/dictionary/polish-english/" + word;
       }
 
       function convertToLink(word) {

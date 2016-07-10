@@ -1,0 +1,64 @@
+APITOLO QUARTO
+
+ALCUNE NOZIONI DI CULTURA GENERALE
+
+Le materie prime usate dal gelatiere sono sostanze provenienti dal regno animale e vegetale e sottoposte a modificazioni fisiche e chimiche: maturazione, scomposizione, surgelamento, sterilizzazione, omogeneizzazione, pastorizzazione, liofilizzazione, evaporazione, torrefazione, polverizzazione ecc. Il gelatiere, combinando le varie materie prime e sottoponendole ad azioni meccaniche e termiche, ottiene nuovi prodotti nei quali le materie prime utilizzate non si riconoscono più: latte, uova, panna, zucchero, acqua mescolati e sottoposti a lavorazione non sono più distinguibili nel prodotto finito. Durante la lavorazione sono avvenute infatti molte trasformazioni di carattere chimico e fisico, ragione per cui
+è bene che il gelatiere conosca le basi scientifiche di questi fenomeni affinché il suo operare sia sempre razionale e quindi cosciente.
+
+l processi che avvengono nel corso del lavoro del gelatiere sono studiati, in generale, dalla biologia (scienza che studia ogni forma di vita anche dal punto di vista fisiologico), dalla fisica e dalla chimica.
+
+È bene chiarire il significato di fenomeni fisici e di quelli chimici.
+
+È fenomeno fisico per esempio la trasformazione dell’acqua dallo stato liquido allo stato aeriforme; quando essa è sottoposta a riscaldamento, oppure il passaggio allo stato solido (ghiaccio) sottoponendola a raffreddamento. ln questi casi la composizione dell’acqua rimane inalterata, cambia solamente lo stato «fisico».
+
+È invece, fenomeno chimico, la trasformazione del saccarosio in zucchero invertito mediante l'azione di un acido sul saccarosio: la trasformazione avvenuta modifica per sempre la posizione dei singoli componenti e si ottiene un prodotto totalmente diverso.
+
+31
+
+CONCETTI FISICI
+
+Miscugli
+
+Per miscuglio si intende l’insieme di due o più sostanze che conservano le loro proprietà chimiche e fisiche e possono essere separate con mezzi fisici.
+
+P. es.: latte in polvere e zucchero di granulometria differente formano un miscuglio che può essere separato mediante un semplice crivello o vaglio. Anche il miscuglio farina-crusca può essere separato mediante abburattamento.
+
+l miscugli possono essere eterogenei o omogenei.
+
+Miscugli eterogenei: si ha un sistema eterogeneo quando i componenti di un prodotto non sono uniformemente distribuiti o sono distinguibili ad occhio nudo o al microscopio.
+
+ll latte, così come anche un’emulsione acqua-olio, sono miscugli eterogenei in cui si possono distinguere le componenti.
+
+Anche la vecchia miscela frigorifera composta di ghiaccio e sale è un miscuglio eterogeneo. La miscela da gelato, pur essendo un sistema assai complesso, è sostanzialmente un miscuglio eterogeneo.
+
+Miscugli omogenei: si ha un sistema omogeneo quando i componenti di un insieme di una o più sostanze sono uniformemente distribuiti e non sono distinguibili sia ad occhio nudo che al microscopio.
+
+L’esempio più comune di miscugli omogenei sono le soluzioni.
+
+La soluzione è un miscuglio omogeneo ed intimo delle particelle di due o piu sostanze differenti.
+
+Nel parlare di soluzioni si sottintende, in generale, che una delle due componenti sia un liquido (nella maggioranza dei casi acqua), e viene indicata come SOLVENTE, mentre l’altra o le altre componenti solide, che si sciolgono nel solvente, si indicano come SOLUTO.
+
+Il solvente è la sostanza in quantità maggiore; il soluto è sempre presenta in quantità minore.
+
+Se in un bicchiere di acqua si versa un po’ di vino, l’acqua è il solente, il vino il soluto. Se viceversa si aggiunge dell'acqua ad un bicchiere di vino sarà teoricamente questo il solvente e l’acqua il soluto.
+
+Tuttavia tanto il solvente quanto il soluto possono essere solidi, liquidi o gas: le mescolanze di gas sono soluzioni di gas in gas (aria: ossigeno ed idrogeno); le leghe metalliche sono soluzioni nelle quali il solvente ed il soluto sono solidi (bronzo: rame e stagno). Le mescolanze dei liquidi miscibili sono anch’esse soluzioni (acqua + vino).
+
+32
+
+Due liquidi che si sciolgono perfettamente l’uno nell’altro si dicono miscibili come acqua e vino, acqua ed alcool, alcool ed etere. Sono invece no miscibili, cioè che non si sciolgono o si sciolgono molto poco, l’acqua e l’etere, l’acqua e l’olio.
+
+Le soluzioni acquose sono le più comuni. Il soluto, come in tutte le soluzioni, può provenire da:
+
+un gas, p. es. anidride carbonica
+un liquido, p. es. vino, alcool
+un solido, p. es. sale, zucchero
+
+Concentrazione di una soluzione: è la quantità di soluto contenuta in una determinata quantità di solvente. Comunemente viene espressa in grammi di soluto in 100 grammi di soluzione. Es.: una soluzione di acido citrico al 40% significa che 100 g di soluzione contengono 40 g di acido citrico (soluto) e 60 g di acqua (solvente).
+
+Solubilità: se in un bicchiere di acqua mettiamo un cucchiaio di zucchero questo si scioglie (fig. 23): possiamo osservare ad occhio nudo la scomparsa dei cristalli e la formazione della soluzione dolce. Se filtriamo tale soluzione, anche su filtri finissimi, non vi notiamo dei residui. Ciò ci dice che lo zucchero si è disperso uniformemente in particelle piccolissime (molecole) tra le particelle (molecole) dell’acqua e non sono da essa distinguibili. Se continuamo ad aggiungere altro zucchero arriverà il momento in cui questo non si scioglierà più. La soluzione si è saturata e non sarà possibile scogliere altro soluto. L’eccesso di soluto si depositerà sul fondo della soluzione e viene detto «corpo di fondo».
+
+La quantità di zucchero (soluto) necessaria per ottenere una soluzione satura esprime la solubilità (il grado di solubilità).
+
+Fig. 23 - Le molecole di zucchero si disperdono uniformemente nel solvene (acqua).
