@@ -8,6 +8,18 @@
         height: 100%;
       }
 
+      .bold{
+        font-weight: bold;
+      }
+
+      .italics{
+        font-style: italic;
+      }
+
+      .non_current{
+        color: silver;
+      }
+
       #wordrefcontainer {
         height: 1000px;
       }
@@ -92,7 +104,7 @@
           </span>
           <span class="btn btn-lg btn-secondary">
           <label for="source_dict">Dictionary:</label>
-          <select id="source_dict" name="source_dict" onchange="setSourceDictFunction(event);">
+          <select id="source_dict" name="source_dict" onchange="setSourceDictFunction(event); clearJsonDict();">
             <optgroup label="Italian">
               <option value="wordref_iten">wordreference Italian - English</option>
               <option value="wordref_definition">wordreference Italian Definition</option>
@@ -114,6 +126,7 @@
         <div class="col-md-6">
           <div id="reference" data-spy="affix" data-offset-top="200" data-offset-bottom="200">
             <div id="wordrefcontainer" class="embed-responsive embed-responsive-16by9">
+            <div id="jsondict"></div>
               <iframe id="wordref" class="embed-responsive-item" src=""></iframe>
             </div>
           </div>
@@ -130,6 +143,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
+      function clearJsonDict() {
+        document.getElementById("jsondict").innerHTML = "";
+      }
+
       function loadWordrefItEn(word) {
         document.getElementById("wordref").src = "http://www.wordreference.com/iten/" + word;
       }
@@ -140,14 +157,33 @@
 
       function loadLektorek(word) {
         var api_url = "http://lektorek.org/dapi/v1/index.php/search/chomper/polish/" + word + "?diacritics=true&pos=all";
-        var iframeElement = document.getElementById("wordref");
-        iframeElement.src = "http://lektorek.org/polish/";
-        iframeElement.addEventListener("load", function(event) {
-          var iframeDocumentElement = document.getElementById('wordref').contentWindow.document;
-          iframeDocumentElement.getElementById("searchStringId").value = "word";
-          iframeDocumentElement.querySelectorAll("input[value=Search]").click();
-        });
-        console.log(api_url);
+
+        function reqListener () {
+          var jsonDictElement = document.getElementById("jsondict");
+          var jsonString = this.responseText;
+          var json = JSON.parse(jsonString);
+          var results = json.results;
+          var resultsText = results.map(function (obj) {
+            return obj.embedded_definition;
+          });
+          var temp_div = document.createElement("div");
+          temp_div.innerHTML = resultsText.join('<br><br>') + '<br><br>';
+          if (jsonDictElement.childNodes[0]) {jsonDictElement.childNodes[0].className = "non_current";}
+          jsonDictElement.insertBefore(temp_div, jsonDictElement.firstElementChild);
+        }
+
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", api_url);
+        oReq.send();
+
+//        var iframeElement = document.getElementById("wordref");
+//        iframeElement.src = "http://lektorek.org/polish/";
+//        iframeElement.addEventListener("load", function(event) {
+//          var iframeDocumentElement = document.getElementById('wordref').contentWindow.document;
+//          iframeDocumentElement.getElementById("searchStringId").value = "word";
+//          iframeDocumentElement.querySelectorAll("input[value=Search]").click();
+//        });
       }
 
       function loadWordrefPlEn(word) {
