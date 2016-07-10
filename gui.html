@@ -92,13 +92,14 @@
           </span>
           <span class="btn btn-lg btn-secondary">
           <label for="source_dict">Dictionary:</label>
-          <select id="source_dict" name="source_dict" onchange="setSourceDict(event);">
+          <select id="source_dict" name="source_dict" onchange="setSourceDictFunction(event);">
             <optgroup label="Italian">
               <option value="wordref_iten">wordreference Italian - English</option>
               <option value="wordref_definition">wordreference Italian Definition</option>
             </optgroup>
             <optgroup label="Polish">
               <option value="lektorek">lektorek</option>
+              <option value="wordref_plen">wordreference Polish - English</option>
             </optgroup>
           </select>
           </span>
@@ -129,16 +130,54 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-      var sourceDict = '';
+      function loadWordrefItEn(word) {
+        document.getElementById("wordref").src = "http://www.wordreference.com/iten/" + word;
+      }
 
-      function setSourceDict(event) {
-        sourceDict = event.target.value;
-        console.log(sourceDict);
+      function loadWordrefDefinition(word) {
+        document.getElementById("wordref").src = "http://www.wordreference.com/definizione/" + word;
+      }
+
+      function loadLektorek(word) {
+        var api_url = "http://lektorek.org/dapi/v1/index.php/search/chomper/polish/" + word + "?diacritics=true&pos=all";
+        var iframeElement = document.getElementById("wordref");
+        iframeElement.src = "http://lektorek.org/polish/";
+        iframeElement.addEventListener("load", function(event) {
+          var iframeDocumentElement = document.getElementById('wordref').contentWindow.document;
+          iframeDocumentElement.getElementById("searchStringId").value = "word";
+          iframeDocumentElement.querySelectorAll("input[value=Search]").click();
+        });
+        console.log(api_url);
+      }
+
+      function loadWordrefPlEn(word) {
+        document.getElementById("wordref").src = "http://www.wordreference.com/plen/" + word;
+      }        
+
+      var sourceDictFunction = loadWordrefItEn;
+
+      function setSourceDictFunction(event) {
+        switch(event.target.value) {
+          case "wordref_iten":
+            sourceDictFunction = loadWordrefItEn;
+            break;
+          case "wordref_definition":
+            sourceDictFunction = loadWordrefDefinition;
+            break;
+          case "lektorek":
+            sourceDictFunction = loadLektorek;
+            break;
+          case "wordref_plen":
+            sourceDictFunction = loadWordrefPlEn;
+            break;
+          default:
+            break;
+        }
       }
 
       function loadWord(word) {
+        sourceDictFunction(word)
         console.log("loadWord", word);
-        document.getElementById("wordref").src = "http://en.bab.la/dictionary/polish-english/" + word;
       }
 
       function convertToLink(word) {
@@ -147,7 +186,7 @@
 
       function annotateWithLinks(s) {
         var regex = /[^ .,-\/#!$%\^&\*;:{}=\-_`~()]+/g
-          return s.replace(regex, convertToLink);
+        return s.replace(regex, convertToLink);
       }
 
       function generateHTML(translationUnits) {

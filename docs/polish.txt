@@ -1,0 +1,5 @@
+Fonologia (dawniej głosownia) – nauka o systemach dźwiękowych języków. Stanowi jeden z działów językoznawstwa (lingwistyki). Fonemika czy fonematyka, podawane jako nazwy synonimiczne, odnoszą się tylko do jednej z teorii fonologicznych i nie mogą być traktowane jako zamiennik nazwy "fonologia".
+
+Od fonetyki odróżnia ją podejście do dźwięków: fonetyka bada ich właściwości fizyczne, fonologia bada, jak funkcjonują i jaki tworzą system. Książę Nikołaj Trubieckoj, jeden z głównych twórców współczesnej fonologii, zilustrował to porównaniem mówiącym, że fonetyka ma się tak do fonologii, jak numizmatyka do nauki o finansach. (Trubieckoj 1939)
+
+Etymologicznie słowo fonologia wywodzi się z greckiego φωνή, phōnḗ, "głos, dźwięk", i przyrostka -logia (który pochodzi z greckiego λόγος, lógos, "słowo, mowa, przedmiot dyskusji").
