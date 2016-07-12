@@ -109,6 +109,10 @@
               <option value="wordref_iten">wordreference Italian - English</option>
               <option value="wordref_definition">wordreference Italian Definition</option>
             </optgroup>
+            <optgroup label="German">
+              <option value="wordref_deen">wordreference German - English</option>
+              <option value="dict_cc">dict.cc</option>              
+            </optgroup>
             <optgroup label="Polish">
               <option value="lektorek">lektorek</option>
               <option value="wordref_plen">wordreference Polish - English</option>
@@ -156,6 +160,14 @@
         document.getElementById("wordref").src = "http://www.wordreference.com/definizione/" + word;
       }
 
+      function loadWordrefDeEn(word) {
+        document.getElementById("wordref").src = "http://www.wordreference.com/deen/" + word;
+      }
+
+      function loadDictCC(word) {
+        document.getElementById("wordref").src = "http://www.dict.cc/?s=" + word;
+      }
+
       function loadLektorek(word) {
         var api_url = "http://lektorek.org/dapi/v1/index.php/search/chomper/polish/" + word + "?diacritics=true&pos=all";
 
@@ -200,6 +212,12 @@
             break;
           case "wordref_definition":
             sourceDictFunction = loadWordrefDefinition;
+            break;
+          case "wordref_deen":
+            sourceDictFunction = loadWordrefDeEn;
+            break;
+          case "dict_cc":
+            sourceDictFunction = loadDictCC;
             break;
           case "lektorek":
             sourceDictFunction = loadLektorek;
